@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import logo from './download.jpg'
+import rct from './logo60.png'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -612,6 +613,12 @@ const ResponsiveAppBar = () => {
                 {page}
               </Button>
             ))}
+            <IconButton /*onClick = {<Link href="#reactjs.org">Link</Link>}*/>
+              <Paper elevation = {4}>
+                <img src={rct} className="rctlogo" alt="recty" />
+              </Paper>
+            </IconButton>
+            
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -640,6 +647,8 @@ const ResponsiveAppBar = () => {
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
+                
+                  
               ))}
             </Menu>
           </Box>
