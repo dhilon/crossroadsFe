@@ -30,6 +30,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -293,13 +295,44 @@ function DFDialog(props) {
 
 function InventoryDialog(props) {
   const { onClose, open } = props;
+  /*const {alert} = (
+  <Alert severity="error">
+    <AlertTitle>Error</AlertTitle>
+    This is an error alert — <strong>check it out!</strong>
+  </Alert>)*/
 
   return (
     <Dialog onClose={onClose} open={open}>
       <DialogTitle>Inventory</DialogTitle>
-      <InventoryCard>
-
-      </InventoryCard>
+      <Box sx={{ minWidth: 275 }}>
+        <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >
+          <React.Fragment>
+            <CardActionArea>
+              <CardContent>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                  Item #?
+                </Typography>
+                <Typography variant="h5" component="div">
+                  Random Item
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  Strength: 
+                </Typography>
+                <Typography variant="body2">
+                  A great ploy to ...
+                  <br />
+                  {'"..."'}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" onClick = {onClose}>
+                Use
+              </Button>
+            </CardActions>
+          </React.Fragment>
+        </Card>
+      </Box>
     </Dialog>
   );
 }
@@ -618,42 +651,6 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-
-const card = (
-  <React.Fragment>
-    <CardActionArea>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Item #?
-        </Typography>
-        <Typography variant="h5" component="div">
-          Random Item
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Strength: 
-        </Typography>
-        <Typography variant="body2">
-          A great ploy to ...
-          <br />
-          {'"..."'}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions>
-      <Button size="small" onClick={() => {alert('Are you sure you want to use this item?');}}>
-        Use
-      </Button>
-    </CardActions>
-  </React.Fragment>
-);
-
-function InventoryCard() {
-  return (
-    <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >{card}</Card>
-    </Box>
-  );
-}
 
 
 
