@@ -27,6 +27,9 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import AdbIcon from '@mui/icons-material/Adb';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -40,6 +43,7 @@ import {
   Link,
 } from "react-router-dom";
 import { isDisabled } from '@testing-library/user-event/dist/utils';
+import { CardActionArea } from '@mui/material';
 
 
 class App extends React.Component {
@@ -53,7 +57,9 @@ class App extends React.Component {
       dfOpen: false,
       leads: false,
       leadMenu: false,
-      calendarOpen: false
+      calendarOpen: false,
+      inventoryOpen: false,
+      voteOpen: false
     };
   }
 
@@ -63,6 +69,18 @@ class App extends React.Component {
 
   htpClose = (value) => {
     this.setState({htpOpen : false});
+  };
+
+  voteClose = (value) => {
+    this.setState({voteOpen : true});
+  };
+
+  inventoryClickOpen = () => {
+    this.setState({inventoryOpen : true});
+  };
+
+  inventoryClose = (value) => {
+    this.setState({inventoryOpen : false});
   };
 
   dfClickOpen = () => {
@@ -152,9 +170,13 @@ class App extends React.Component {
           </Grid>
 
           <Grid item xs={4}>
-            <IconButton aria-label="inventory" size = "large">
+            <IconButton aria-label="inventory" size = "large" onClick = {this.inventoryClickOpen.bind(this)}>
               <Inventory sx = {{ fontSize : 45, border: 2}}/>
             </IconButton>
+            <InventoryDialog
+              open={this.state.inventoryOpen}
+              onClose={this.inventoryClose.bind(this)}
+            />
           </Grid>
 
           <Grid item xs={4}>
@@ -180,9 +202,9 @@ class App extends React.Component {
           </Grid>
 
           <Grid item xs={12}>
-            <VoteButton>
-
-            </VoteButton>
+            <Button variant="contained" disabled={this.state.voteOpen} onClick = {this.voteClose.bind(this)}>
+              Vote
+            </Button>
           </Grid>
 
           <Grid item xs={4}>
@@ -269,6 +291,19 @@ function DFDialog(props) {
   );
 }
 
+function InventoryDialog(props) {
+  const { onClose, open } = props;
+
+  return (
+    <Dialog onClose={onClose} open={open}>
+      <DialogTitle>Inventory</DialogTitle>
+      <InventoryCard>
+
+      </InventoryCard>
+    </Dialog>
+  );
+}
+
 function CalendarDialog(props) {
   const [value, setValue] = React.useState(new Date());
   const { onClose, open } = props;
@@ -279,7 +314,7 @@ function CalendarDialog(props) {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DateTimePicker
           renderInput={(props) => <TextField {...props} />}
-          label="DateTimePicker"
+          label="Ultimate Calendar of Votes"
           value={value}
           onChange={(newValue) => {
             setValue(newValue);
@@ -290,31 +325,13 @@ function CalendarDialog(props) {
   );
 }
 
-function VoteButton(props) {
-  const { onClose, open } = props;
-
-  return (
-    <div>
-      <Button variant="contained" disabled open={!props} onClose = {onClose}
-      onClick={() => {
-      }} >Vote</Button>
-      <Button variant="contained" open={props} onClose = {onClose}
-      onClick={() => {
-        alert('clicked');
-      }} >Vote</Button>
-    </div>
-    
-
-  );
-}
-
 DFDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };
 
-VoteButton.propTypes = {
-  onClose: PropTypes.bool.isRequired,
+InventoryDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };
 
@@ -601,6 +618,42 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
+
+const card = (
+  <React.Fragment>
+    <CardActionArea>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Item #?
+        </Typography>
+        <Typography variant="h5" component="div">
+          Random Item
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          Strength: 
+        </Typography>
+        <Typography variant="body2">
+          A great ploy to ...
+          <br />
+          {'"..."'}
+        </Typography>
+      </CardContent>
+    </CardActionArea>
+    <CardActions>
+      <Button size="small" onClick={() => {alert('Are you sure you want to use this item?');}}>
+        Use
+      </Button>
+    </CardActions>
+  </React.Fragment>
+);
+
+function InventoryCard() {
+  return (
+    <Box sx={{ minWidth: 275 }}>
+      <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >{card}</Card>
+    </Box>
+  );
+}
 
 
 
