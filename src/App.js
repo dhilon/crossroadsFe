@@ -545,7 +545,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            CROSSROADS LLC
+            CROSSROADS
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
