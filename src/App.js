@@ -10,6 +10,7 @@ import ProfileDialog from './ProfileDialog.js';
 import HTPDialog from './HTPDialog.js';
 import DFDialog from './DFDialog.js';
 import CalendarDialog from './CalendarDialog.js';
+import StoreDialog from './StoreDialog.js';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -17,22 +18,20 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Button, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+
 import * as React from "react";
-import Dialog from '@mui/material/Dialog';
+
 import PropTypes from 'prop-types';
 
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-import DialogTitle from '@mui/material/DialogTitle';
 
 
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 
-import {CalendarToday, Inventory, CardMembershipOutlined, CheckBox, CheckBoxOutlineBlank, Leaderboard, ShoppingCart, BatterySaver, CreditCard, DisabledByDefault, BatteryCharging90Outlined} from '@mui/icons-material';
-import { CardActionArea } from '@mui/material';
+
+
+import {CalendarToday, Inventory, CheckBox, CheckBoxOutlineBlank, ShoppingCart, BatterySaver, CreditCard, DisabledByDefault} from '@mui/icons-material';
+
 
 
 class App extends React.Component {
@@ -259,52 +258,6 @@ class App extends React.Component {
             }
   
   
-}
-
-
-
-
-
-function StoreDialog(props) {
-  const { onClose, open } = props;
-
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>The Store</DialogTitle>
-      <Box sx={{ minWidth: 275 }}>
-        <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >
-          <React.Fragment>
-            <CardActionArea>
-              <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Item #?
-                </Typography>
-                <Typography variant="h5" component="div">
-                  Random Item
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  Strength: 
-                </Typography>
-                <Typography variant="body2">
-                  A great ploy to ...
-                  <br />
-                  {'"..."'}
-                </Typography>
-                <Typography variant="body1">
-                  <CardMembershipOutlined size = "small"/> 34
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" onClick = {onClose}>
-                Buy
-              </Button>
-            </CardActions>
-          </React.Fragment>
-        </Card>
-      </Box>
-    </Dialog>
-  );
 }
 
 
