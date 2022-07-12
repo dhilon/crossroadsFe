@@ -4,22 +4,16 @@ import rct from './logo60.png'
 
 
 import WhichLeaderboard from './WhichLeaderboard.js'
+import InventoryDialog from './InventoryDialog.js'
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Button, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import * as React from "react";
-import Stack from '@mui/material/Stack';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList } from 'react-window';
-import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
@@ -47,12 +41,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 import {CalendarToday, Inventory, CardMembershipOutlined, CheckBox, CheckBoxOutlineBlank, Leaderboard, ShoppingCart, BatterySaver, CreditCard, DisabledByDefault, BatteryCharging90Outlined} from '@mui/icons-material';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from "react-router-dom";
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 import { CardActionArea } from '@mui/material';
 
 
@@ -335,68 +323,6 @@ function ProfileDialog(props) {
   );
 }
 
-function InventoryCard(props) {
-  const { onClose } = props;
-  return (
-    <Card variant="outlined">
-      <React.Fragment>
-        <CardActionArea>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Item #?
-            </Typography>
-            <Typography variant="h5" component="div">
-              Random Item
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Strength: 
-            </Typography>
-            <Typography variant="body2">
-              A great ploy to ...
-              <br />
-              {'"..."'}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" onClick = {onClose}>
-            Use
-          </Button>
-        </CardActions>
-      </React.Fragment>
-    </Card>
-  );
-}
-
-function InventoryDialog(props) {
-  const { onClose, open } = props;
-  /*const {alert} = (
-  <Alert severity="error">
-    <AlertTitle>Error</AlertTitle>
-    This is an error alert — <strong>check it out!</strong>
-  </Alert>)*/
-
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>Inventory</DialogTitle>
-      <Box sx={{ minWidth: 275 }}>
-        <FixedSizeList
-          height={400}
-          width={360}
-          itemSize={46}
-          itemCount={200}
-          overscanCount={5}
-        >
-          <InventoryCard onClose = {onClose}/>
-          <InventoryCard onClose = {onClose}/>
-          <InventoryCard onClose = {onClose}/>
-        </FixedSizeList>
-
-      </Box>
-    </Dialog>
-  );
-}
-
 function StoreDialog(props) {
   const { onClose, open } = props;
 
@@ -470,10 +396,6 @@ ProfileDialog.propTypes = {
   open: PropTypes.bool.isRequired,
 };
 
-InventoryDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-};
 
 StoreDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
