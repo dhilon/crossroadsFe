@@ -7,6 +7,9 @@ import WhichLeaderboard from './WhichLeaderboard.js'
 import InventoryDialog from './InventoryDialog.js'
 import ResponsiveAppBar from './AppBar.js';
 import ProfileDialog from './ProfileDialog.js';
+import HTPDialog from './HTPDialog.js';
+import DFDialog from './DFDialog.js';
+import CalendarDialog from './CalendarDialog.js';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -18,7 +21,7 @@ import Box from '@mui/material/Box';
 import * as React from "react";
 import Dialog from '@mui/material/Dialog';
 import PropTypes from 'prop-types';
-import TextField from '@mui/material/TextField';
+
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -27,10 +30,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 import {CalendarToday, Inventory, CardMembershipOutlined, CheckBox, CheckBoxOutlineBlank, Leaderboard, ShoppingCart, BatterySaver, CreditCard, DisabledByDefault, BatteryCharging90Outlined} from '@mui/icons-material';
 import { CardActionArea } from '@mui/material';
@@ -262,34 +261,9 @@ class App extends React.Component {
   
 }
 
-function HTPDialog(props) {
-  const { onClose, open } = props;
 
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>How to Play</DialogTitle>
-      <Typography variant = "body1" sx = {{padding: 1}}>
-        This game delves into both the complex natures of game theory and the trustworthiness of cooperation. Choose the side that you think other people will not choose. Whichever side has the least amount of 
-        votes by the hour will get a certain amount of points added to the score and their streak increased by one. 
-        Use other tools on screen to help you decide the road you will take.
-        
-      </Typography>
-    </Dialog>
-  );
-}
 
-function DFDialog(props) {
-  const { onClose, open } = props;
 
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>Daily Fact</DialogTitle>
-      <Typography variant = "body1" sx = {{padding: 1}}>
-        1 in 5,000 north Atlantic lobsters are born bright blue.
-      </Typography>
-    </Dialog>
-  );
-}
 
 function StoreDialog(props) {
   const { onClose, open } = props;
@@ -333,26 +307,7 @@ function StoreDialog(props) {
   );
 }
 
-function CalendarDialog(props) {
-  const [value, setValue] = React.useState(new Date());
-  const { onClose, open } = props;
 
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle> </DialogTitle>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DateTimePicker
-          renderInput={(props) => <TextField {...props} />}
-          label="Ultimate Calendar of Votes"
-          value={value}
-          onChange={(newValue) => {
-            setValue(newValue);
-          }}
-        />
-      </LocalizationProvider>
-    </Dialog>
-  );
-}
 
 DFDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
