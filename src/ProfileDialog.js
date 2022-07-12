@@ -1,5 +1,6 @@
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
+import PropTypes from 'prop-types';
 
 
 function ProfileDialog(props) {
@@ -25,5 +26,10 @@ function ProfileDialog(props) {
       
     );
   }
+
+ProfileDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
 
 export default ProfileDialog

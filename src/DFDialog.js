@@ -2,6 +2,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import * as React from "react";
 import {Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 
 
 function DFDialog(props) {
@@ -16,5 +17,10 @@ function DFDialog(props) {
       </Dialog>
     );
   }
+
+DFDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
 
 export default DFDialog;

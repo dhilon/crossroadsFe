@@ -8,6 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { CardActionArea } from '@mui/material';
 import {CardMembershipOutlined} from '@mui/icons-material';
+import PropTypes from 'prop-types';
 
 
 function StoreDialog(props) {
@@ -51,5 +52,10 @@ function StoreDialog(props) {
       </Dialog>
     );
   }
+
+StoreDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
 
 export default StoreDialog;

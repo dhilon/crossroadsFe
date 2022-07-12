@@ -2,6 +2,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import * as React from "react";
 import {Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 
 
 function HTPDialog(props) {
@@ -19,5 +20,10 @@ function HTPDialog(props) {
       </Dialog>
     );
   }
+
+HTPDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
 
 export default HTPDialog;
