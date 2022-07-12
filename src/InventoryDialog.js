@@ -46,38 +46,4 @@ function InventoryCard(props) {
   );
 }
 
-function InventoryDialog(props) {
-  const { onClose, open } = props;
-  /*const {alert} = (
-  <Alert severity="error">
-    <AlertTitle>Error</AlertTitle>
-    This is an error alert — <strong>check it out!</strong>
-  </Alert>)*/
-
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>Inventory</DialogTitle>
-      <Box sx={{ minWidth: 275 }}>
-        <FixedSizeList
-          height={400}
-          width={360}
-          itemSize={46}
-          itemCount={200}
-          overscanCount={5}
-        >
-          <InventoryCard onClose = {onClose}/>
-          <InventoryCard onClose = {onClose}/>
-          <InventoryCard onClose = {onClose}/>
-        </FixedSizeList>
-
-      </Box>
-    </Dialog>
-  );
-}
-
-InventoryDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-};
-
-export default InventoryDialog;
+export default InventoryCard;
