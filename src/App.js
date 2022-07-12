@@ -11,8 +11,8 @@ import HTPDialog from './HTPDialog.js';
 import DFDialog from './DFDialog.js';
 import CalendarDialog from './CalendarDialog.js';
 import StoreCard from './StoreDialog.js';
-import SwipeableCarousel from './carousel.js';
-
+import InventoryCarousel from './InventoryCarousel.js';
+import StoreCarousel from './StoreCarousel.js';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -163,7 +163,7 @@ class App extends React.Component {
             <IconButton aria-label="inventory" size = "large" onClick = {this.inventoryClickOpen.bind(this)}>
               <Inventory sx = {{ fontSize : 45, border: 2}}/>
             </IconButton>
-            <SwipeableCarousel
+            <InventoryCarousel
               open={this.state.inventoryOpen}
               onClose={this.inventoryClose.bind(this)}
             />
@@ -203,6 +203,10 @@ class App extends React.Component {
               <ShoppingCart sx = {{ fontSize : 60, border: 2}}/>
               
             </IconButton>
+            <StoreCarousel
+              open={this.state.storeOpen}
+              onClose={this.storeClose.bind(this)}
+            />
 
           </Grid>
           

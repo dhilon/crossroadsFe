@@ -1,8 +1,5 @@
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import * as React from "react";
 import { Button, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -47,8 +44,5 @@ function StoreCard(props) {
     );
   }
 
-StoreCard.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};
 
 export default StoreCard;

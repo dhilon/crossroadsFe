@@ -10,7 +10,6 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
-import InventoryCard from './InventoryDialog.js';
 import StoreCard from './StoreDialog.js';
 
 const cards = [
@@ -24,7 +23,7 @@ const cards = [
   {
     label: 'Bird',
     card:
-        <InventoryCard/>,
+        <StoreCard/>,
     imgPath:
         'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
     },
@@ -38,13 +37,13 @@ const cards = [
   {
     label: 'Goč, Serbia',
     card:
-        <InventoryCard/>,
+        <StoreCard/>,
     imgPath:
         'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
     },
 ];
 
-function SwipeableCarousel(props) {
+function StoreCarousel(props) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = cards.length;
@@ -63,16 +62,11 @@ function SwipeableCarousel(props) {
 
   const { open, onClose } = props;
 
-  const { donClose, dopen } = props;
   
-      
-
-
-
   if (open) {
     return (
       <Dialog onClose={onClose} open={open}>
-        <DialogTitle>Inventory</DialogTitle>
+        <DialogTitle>Store</DialogTitle>
         <Box sx={{ maxWidth: 400, flexGrow: 1 }} onClose = {onClose}>
             
           <Paper
@@ -191,9 +185,9 @@ function SwipeableCarousel(props) {
   
 }
 
-SwipeableCarousel.propTypes = {
+StoreCarousel.propTypes = {
     onClose: PropTypes.func.isRequired,
     open: PropTypes.bool.isRequired,
   };
 
-export default SwipeableCarousel;
+export default StoreCarousel;
