@@ -1,4 +1,4 @@
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import logo from './download.jpg'
 import rct from './logo60.png'
