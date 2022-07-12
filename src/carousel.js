@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import InventoryCard from './InventoryDialog.js';
 import StoreCard from './StoreDialog.js';
 
-const images = [
+const cards = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     card:
@@ -47,7 +47,7 @@ const images = [
 function SwipeableCarousel(props) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+  const maxSteps = cards.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -86,27 +86,21 @@ function SwipeableCarousel(props) {
               bgcolor: 'background.default',
             }}
           >
-            <Typography>{images[activeStep].label}</Typography>
+            <Typography>{cards[activeStep].label}</Typography>
           </Paper>
-          {images.map((step, index) => (
-            <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                <Box
-                    component="img"
-                    sx={{
-                        height: 255,
-                        display: 'block',
-                        maxWidth: 400,
-                        overflow: 'hidden',
-                        width: '100%',
-                    }}
-                    src={step.imgPath}
-                    alt={step.label}
-                />
-                ) : null}
-            </div>
-            ))}
-          {images[activeStep].card}
+            <Box
+                component="img"
+                sx={{
+                    height: 255,
+                    display: 'block',
+                    maxWidth: 400,
+                    overflow: 'hidden',
+                    width: '100%',
+                }}
+                src={cards[activeStep].imgPath}
+                alt={cards[activeStep].label}
+            />
+          {cards[activeStep].card}
           <MobileStepper
             steps={maxSteps}
             position="static"
@@ -157,7 +151,7 @@ function SwipeableCarousel(props) {
             bgcolor: 'background.default',
           }}
         >
-          <Typography>{images[activeStep].label}</Typography>
+          <Typography>{cards[activeStep].label}</Typography>
         </Paper>
         
         <MobileStepper
