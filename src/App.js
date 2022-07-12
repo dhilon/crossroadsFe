@@ -1,10 +1,12 @@
 import './App.css';
 import logo from './download.jpg'
-import rct from './logo60.png'
+
 
 
 import WhichLeaderboard from './WhichLeaderboard.js'
 import InventoryDialog from './InventoryDialog.js'
+import ResponsiveAppBar from './AppBar.js';
+import ProfileDialog from './ProfileDialog.js';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -14,27 +16,17 @@ import { Button, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import * as React from "react";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-import Paper from '@mui/material/Paper'
-import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PropTypes from 'prop-types';
 import TextField from '@mui/material/TextField';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import AdbIcon from '@mui/icons-material/Adb';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Switch from '@mui/material/Switch';
-import Slide from '@mui/material/Slide';
-import FormControlLabel from '@mui/material/FormControlLabel';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -299,30 +291,6 @@ function DFDialog(props) {
   );
 }
 
-function ProfileDialog(props) {
-  const { onClose, open } = props;
-
-  return (
-    <div>
-      <Dialog onClose={onClose} open={open}>
-        <DialogTitle>All About YOU</DialogTitle>
-        Account ID:
-        <br></br>
-        Created:
-        <br></br>
-        Hours Played:
-        <br></br>
-        Hours Won:
-        <br></br>
-        Highest Streak Rank:
-        <br></br>
-        Highest Points Rank: 
-      </Dialog>
-    </div>
-    
-  );
-}
-
 function StoreDialog(props) {
   const { onClose, open } = props;
 
@@ -332,7 +300,7 @@ function StoreDialog(props) {
       <Box sx={{ minWidth: 275 }}>
         <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >
           <React.Fragment>
-            <CardActionArea onClick = {SlideFromContainer}>
+            <CardActionArea>
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                   Item #?
@@ -413,205 +381,7 @@ CalendarDialog.propTypes = {
 };
 
 
-const pages = ['About Us', 'Feedback'];
 
-function ResponsiveAppBar(props){
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const { profileClose, profileOpen, profileClickOpen } = props;
-
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  return (
-    <div>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              CROSSROADS
-            </Typography>
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton>
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page}
-                </Button>
-              ))}
-              <IconButton>
-                <Paper elevation = {4}>
-                  <img src={rct} className="rctlogo" alt="recty" />
-                </Paper>
-              </IconButton>
-              
-            </Box>
-
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open profile settings">
-                <IconButton onClick={props.profileClickOpen} sx={{ p: 0 }}
-                id="profile-button"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                >
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                  <ProfileDialog open = {props.profileOpen} onClose = {props.profileClose}/>
-                </IconButton>
-              </Tooltip>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </div>
-  );
-  
-};
-
-const icon = (
-  <Paper sx={{ m: 1, width: 100, height: 100 }} elevation={4}>
-    <Box component="svg" sx={{ width: 100, height: 100 }}>
-      <Box
-        component="polygon"
-        sx={{
-          fill: (theme) => theme.palette.common.white,
-          stroke: (theme) => theme.palette.divider,
-          strokeWidth: 1,
-        }}
-        points="0,100 50,00, 100,100"
-      />
-    </Box>
-  </Paper>
-);
-
-function SlideFromContainer() {
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
-  return (
-    <Box
-      sx={{
-        height: 180,
-        width: 240,
-        display: 'flex',
-        padding: 2,
-        borderRadius: 1,
-        bgcolor: (theme) =>
-          theme.palette.mode === 'light' ? 'grey.100' : 'grey.900',
-        overflow: 'hidden',
-      }}
-      ref={StoreDialog}
-    >
-      <Box sx={{ width: 200 }}>
-        <FormControlLabel
-          control={<Switch checked={checked} onChange={handleChange} />}
-          label="Show from target"
-        />
-        <Slide direction="up" in={checked} container={StoreDialog}>
-          <CardActionArea>
-            <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Item #?
-              </Typography>
-              <Typography variant="h5" component="div">
-                Random Item
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Strength: 
-              </Typography>
-              <Typography variant="body2">
-                A great ploy to ...
-                <br />
-                {'"..."'}
-              </Typography>
-              <Typography variant="body1">
-                <CardMembershipOutlined size = "small"/> 33
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Slide>
-      </Box>
-    </Box>
-  );
-}
 
 
 
