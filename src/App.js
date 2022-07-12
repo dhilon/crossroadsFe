@@ -2,6 +2,10 @@
 import './App.css';
 import logo from './download.jpg'
 import rct from './logo60.png'
+
+
+import WhichLeaderboard from './WhichLeaderboard.js'
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -168,21 +172,7 @@ class App extends React.Component {
             
             
 
-            <WhichLeaderboard open={this.state.dfOpen} onClick={this.handleLeads.bind(this)}>
-              <Button variant = "contained" size = "normal">
-                <Leaderboard fontSize="large" />
-                  <TopStreaksMenu open = {this.state.leadMenu} onClose = {this.leadClose.bind(this)}>
-                    
-                  </TopStreaksMenu>
-
-                  <MostPointsMenu open = {this.state.leadMenu} onClose = {this.leadClose.bind(this)}>
-                    
-                  </MostPointsMenu>
-                <Leaderboard fontSize="large"/>
-              </Button>
-            </WhichLeaderboard>
-
-            
+            <WhichLeaderboard open={this.state.dfOpen} onClick={this.handleLeads.bind(this)} leadClickOpen={this.leadClickOpen.bind(this)} />
           </Grid>
 
           <Grid item xs={4}>
@@ -501,123 +491,6 @@ CalendarDialog.propTypes = {
   open: PropTypes.bool.isRequired,
 };
 
-function WhichLeaderboard() {
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <div>
-      <Button variant = "contained" size = "normal" onClick={handleClick}>
-        <Leaderboard fontSize="large" />
-          <Typography variant = "h5" sx = {{padding: 1}}>
-            Leaderboards
-          </Typography>
-        <Leaderboard fontSize="large"/>
-      </Button>
-      <Menu
-        id="which-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={App.leadClickOpen}>
-          <TopStreaksMenu>
-            
-          </TopStreaksMenu>
-          
-        </MenuItem>
-        <MenuItem onClick={App.leadClickOpen}>
-          <MostPointsMenu>
-          
-          </MostPointsMenu>
-        </MenuItem>
-      </Menu>
-    </div>
-  );
-}
-
-function TopStreaksMenu(props){
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <div>
-      <Button variant = "contained" size = "normal" onClick={handleClick}>
-        <Leaderboard fontSize="large" />
-          <Typography variant = "h5" sx = {{padding: 1}}>
-            <BatteryCharging90Outlined size = "small"/>
-            Top Streaks
-            <BatteryCharging90Outlined size = "small"/>
-          </Typography>
-        <Leaderboard fontSize="large"/>
-      </Button>
-      <Menu
-        id="leads-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem>1st place: ...</MenuItem>
-        <MenuItem>2nd place: ...</MenuItem>
-        <MenuItem>3rd place: ...</MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem>Your place: ...</MenuItem>
-      </Menu>
-    </div>
-  )
-}
-
-function MostPointsMenu(props){
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <div>
-      <Button variant = "contained" size = "normal" onClick={handleClick}>
-        <Leaderboard fontSize="large" />
-          <Typography variant = "h5" sx = {{padding: 1}}>
-            <CardMembershipOutlined size = "small"/>
-              Most Points
-            <CardMembershipOutlined size = "small"/>
-          </Typography>
-        <Leaderboard fontSize="large"/>
-      </Button>
-      <Menu
-        id="points-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem>1st place: ...</MenuItem>
-        <MenuItem>2nd place: ...</MenuItem>
-        <MenuItem>3rd place: ...</MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem>Your place: ...</MenuItem>
-      </Menu>
-    </div>
-  )
-}
 
 const pages = ['About Us', 'Feedback'];
 
