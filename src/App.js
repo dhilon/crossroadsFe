@@ -38,9 +38,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Switch from '@mui/material/Switch';
-import Slide from '@mui/material/Slide';
-import FormControlLabel from '@mui/material/FormControlLabel';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -406,7 +403,7 @@ function StoreDialog(props) {
       <Box sx={{ minWidth: 275 }}>
         <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >
           <React.Fragment>
-            <CardActionArea onClick = {SlideFromContainer}>
+            <CardActionArea>
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                   Item #?
@@ -620,76 +617,6 @@ function ResponsiveAppBar(props){
   );
   
 };
-
-const icon = (
-  <Paper sx={{ m: 1, width: 100, height: 100 }} elevation={4}>
-    <Box component="svg" sx={{ width: 100, height: 100 }}>
-      <Box
-        component="polygon"
-        sx={{
-          fill: (theme) => theme.palette.common.white,
-          stroke: (theme) => theme.palette.divider,
-          strokeWidth: 1,
-        }}
-        points="0,100 50,00, 100,100"
-      />
-    </Box>
-  </Paper>
-);
-
-function SlideFromContainer() {
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
-  return (
-    <Box
-      sx={{
-        height: 180,
-        width: 240,
-        display: 'flex',
-        padding: 2,
-        borderRadius: 1,
-        bgcolor: (theme) =>
-          theme.palette.mode === 'light' ? 'grey.100' : 'grey.900',
-        overflow: 'hidden',
-      }}
-      ref={StoreDialog}
-    >
-      <Box sx={{ width: 200 }}>
-        <FormControlLabel
-          control={<Switch checked={checked} onChange={handleChange} />}
-          label="Show from target"
-        />
-        <Slide direction="up" in={checked} container={StoreDialog}>
-          <CardActionArea>
-            <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Item #?
-              </Typography>
-              <Typography variant="h5" component="div">
-                Random Item
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Strength: 
-              </Typography>
-              <Typography variant="body2">
-                A great ploy to ...
-                <br />
-                {'"..."'}
-              </Typography>
-              <Typography variant="body1">
-                <CardMembershipOutlined size = "small"/> 33
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Slide>
-      </Box>
-    </Box>
-  );
-}
 
 
 
