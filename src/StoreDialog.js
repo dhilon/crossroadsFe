@@ -11,51 +11,44 @@ import {CardMembershipOutlined} from '@mui/icons-material';
 import PropTypes from 'prop-types';
 
 
-function StoreDialog(props) {
-    const { onClose, open } = props;
-  
+function StoreCard(props) {
+  const { onClose } = props;
     return (
-      <Dialog onClose={onClose} open={open}>
-        <DialogTitle>The Store</DialogTitle>
-        <Box sx={{ minWidth: 275 }}>
-          <Card variant="outlined" /*onClick = {App.inventoryClose}*/ >
-            <React.Fragment>
-              <CardActionArea>
-                <CardContent>
-                  <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Item #?
-                  </Typography>
-                  <Typography variant="h5" component="div">
-                    Random Item
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    Strength: 
-                  </Typography>
-                  <Typography variant="body2">
-                    A great ploy to ...
-                    <br />
-                    {'"..."'}
-                  </Typography>
-                  <Typography variant="body1">
-                    <CardMembershipOutlined size = "small"/> 34
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" onClick = {onClose}>
-                  Buy
-                </Button>
-              </CardActions>
-            </React.Fragment>
-          </Card>
-        </Box>
-      </Dialog>
+      <Card variant="outlined">
+        <React.Fragment>
+          <CardActionArea>
+            <CardContent>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Item #?
+              </Typography>
+              <Typography variant="h5" component="div">
+                Random Item
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                Strength: 
+              </Typography>
+              <Typography variant="body2">
+                A great ploy to ...
+                <br />
+                {'"..."'}
+              </Typography>
+              <Typography variant="body1">
+                <CardMembershipOutlined size = "small"/> 34
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button size="small" onClick = {onClose}>
+              Buy
+            </Button>
+          </CardActions>
+        </React.Fragment>
+      </Card>
     );
   }
 
-StoreDialog.propTypes = {
+StoreCard.propTypes = {
   onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
 };
 
-export default StoreDialog;
+export default StoreCard;

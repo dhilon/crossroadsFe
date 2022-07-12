@@ -10,7 +10,7 @@ import ProfileDialog from './ProfileDialog.js';
 import HTPDialog from './HTPDialog.js';
 import DFDialog from './DFDialog.js';
 import CalendarDialog from './CalendarDialog.js';
-import StoreDialog from './StoreDialog.js';
+import StoreCard from './StoreDialog.js';
 import SwipeableCarousel from './carousel.js';
 
 import '@fontsource/roboto/300.css';
@@ -203,7 +203,6 @@ class App extends React.Component {
               <ShoppingCart sx = {{ fontSize : 60, border: 2}}/>
               
             </IconButton>
-            <StoreDialog open = {this.state.storeOpen} onClose = {this.storeClose.bind(this)}/>
 
           </Grid>
           

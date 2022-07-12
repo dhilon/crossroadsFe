@@ -11,12 +11,13 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 import InventoryCard from './InventoryDialog.js';
+import StoreCard from './StoreDialog.js';
 
 const images = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     card:
-      <InventoryCard/>,
+      <StoreCard/>,
     imgPath:
       'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
   },
@@ -30,7 +31,7 @@ const images = [
   {
     label: 'Bali, Indonesia',
     card:
-        <InventoryCard/>,
+        <StoreCard/>,
     imgPath:
         'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
     },
