@@ -12,28 +12,42 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Button, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import * as React from "react";
-import Dialog from '@mui/material/Dialog';
+import { 
+   Button, 
+   Typography, 
+   Grid, 
+   Box,  
+   Dialog,
+   TextField,
+   IconButton,
+   Paper,
+   DialogTitle,
+   Card, 
+   CardActions,
+   CardContent, 
+   CardActionArea
+  } from '@mui/material';
+
 import PropTypes from 'prop-types';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import Paper from '@mui/material/Paper';
-import DialogTitle from '@mui/material/DialogTitle';
-
-
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
-import {CalendarToday, Inventory, CardMembershipOutlined, CheckBox, CheckBoxOutlineBlank, Leaderboard, ShoppingCart, BatterySaver, CreditCard, DisabledByDefault, BatteryCharging90Outlined} from '@mui/icons-material';
-import { CardActionArea } from '@mui/material';
+import {
+  CalendarToday, 
+  Inventory, 
+  CardMembershipOutlined, 
+  CheckBox, 
+  CheckBoxOutlineBlank, 
+  Leaderboard, 
+  ShoppingCart, 
+  BatterySaver, 
+  CreditCard, 
+  DisabledByDefault, 
+  BatteryCharging90Outlined
+} from '@mui/icons-material';
 
 
 class App extends React.Component {
