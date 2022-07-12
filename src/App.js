@@ -11,6 +11,7 @@ import HTPDialog from './HTPDialog.js';
 import DFDialog from './DFDialog.js';
 import CalendarDialog from './CalendarDialog.js';
 import StoreDialog from './StoreDialog.js';
+import SwipeableCarousel from './carousel.js';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -141,9 +142,6 @@ class App extends React.Component {
 
           </Grid>
           <Grid item xs={4}>
-            
-            
-
             <WhichLeaderboard open={this.state.dfOpen} onClick={this.handleLeads.bind(this)} leadClickOpen={this.leadClickOpen.bind(this)} />
           </Grid>
 
@@ -165,7 +163,7 @@ class App extends React.Component {
             <IconButton aria-label="inventory" size = "large" onClick = {this.inventoryClickOpen.bind(this)}>
               <Inventory sx = {{ fontSize : 45, border: 2}}/>
             </IconButton>
-            <InventoryDialog
+            <SwipeableCarousel
               open={this.state.inventoryOpen}
               onClose={this.inventoryClose.bind(this)}
             />
