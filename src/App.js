@@ -183,7 +183,7 @@ class App extends React.Component {
 
           <Grid item xs={6}>
             <Paper elevation = {7}>
-              <img src={logo} className="App-logo" alt="logo" />
+              <img src={logo} className="App-logo" alt="logo" sx = {{width: "100%", height: "100%"}}/>
             </Paper>
           </Grid>
 
