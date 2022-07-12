@@ -25,12 +25,7 @@ import PropTypes from 'prop-types';
 
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-
-
-
-
-
-import {CalendarToday, Inventory, CheckBox, CheckBoxOutlineBlank, ShoppingCart, BatterySaver, CreditCard, DisabledByDefault} from '@mui/icons-material';
+import {CalendarToday, Inventory, CheckBox, CheckBoxOutlineBlank, ShoppingCart, CreditCard, DisabledByDefault} from '@mui/icons-material';
 
 
 
