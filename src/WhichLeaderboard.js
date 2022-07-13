@@ -76,7 +76,7 @@ function TopStreaksMenu(props){
           </Typography>
         <Leaderboard fontSize="large"/>
       </Button>
-      <Dialog onClose={handleClose} open={open} onClick = {handleClick}>
+      <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Top Streaks Leaderboard</DialogTitle>
         <Menu
           id="points-menu"
