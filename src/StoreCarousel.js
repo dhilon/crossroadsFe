@@ -21,11 +21,11 @@ const cards = [
       'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
-    label: 'Bird',
+    label: 'New Item',
     card:
         <StoreCard/>,
     imgPath:
-        'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+        'https://image.shutterstock.com/image-vector/new-item-sign-stamp-on-260nw-1773071672.jpg',
     },
   {
     label: 'Bali, Indonesia',

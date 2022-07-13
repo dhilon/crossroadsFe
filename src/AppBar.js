@@ -14,8 +14,9 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper'
 import ProfileDialog from "./ProfileDialog.js";
-
+import FeedbackDialog from './FeedbackDialog.js';
 import rct from './logo60.png'
+import { Feed } from "@mui/icons-material";
 
 
 const pages = ['About Us', 'Feedback'];
@@ -24,6 +25,7 @@ function ResponsiveAppBar(props){
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { profileClose, profileOpen, profileClickOpen } = props;
+  const { feedbackOpen, feedbackClose, feedbackClickOpen } = props;
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -68,29 +70,6 @@ function ResponsiveAppBar(props){
               <IconButton>
                 <MenuIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
             </Box>
             <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
             <Typography
@@ -111,14 +90,21 @@ function ResponsiveAppBar(props){
             >
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page}
-                </Button>
-              ))}
+              <Button
+                key={"About Us"}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                
+              >
+                {"About Us"}
+              </Button>
+              <Button
+                key={"Feedback"}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                onClick = {feedbackClickOpen}
+              >
+                {"Feedback"}
+              </Button>
+              <FeedbackDialog open = {feedbackOpen} onClose = {feedbackClose}/>
               <IconButton>
                 <Paper elevation = {4}>
                   <img src={rct} className="rctlogo" alt="recty" />

@@ -15,7 +15,6 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Button, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-
 import * as React from "react";
 
 import IconButton from '@mui/material/IconButton';
@@ -46,6 +45,7 @@ class App extends React.Component {
       profileOpen: false,
       storeOpen: false,
       leftright: false,
+      feedbackOpen: false,
     };
   }
 
@@ -166,7 +166,14 @@ class App extends React.Component {
           </Grid>
               
           <Grid item xs = {12}>
-            <ResponsiveAppBar profileOpen = {this.state.profileOpen} profileClose = {this.handleOpenClose.bind(this, 'profileOpen')} profileClickOpen = {this.handleOpenClose.bind(this, 'profileOpen')}/>
+            <ResponsiveAppBar
+            profileOpen = {this.state.profileOpen}
+            profileClose = {this.handleOpenClose.bind(this, 'profileOpen')}
+            profileClickOpen = {this.handleOpenClose.bind(this, 'profileOpen')}
+            feedbackOpen = {this.state.feedbackOpen}
+            feedbackClose = {this.handleOpenClose.bind(this, 'feedbackOpen')}
+            feedbackClickOpen = {this.handleOpenClose.bind(this, 'feedbackOpen')}
+            />
             <ProfileDialog open = {this.state.profileOpen} onClose = {this.handleOpenClose.bind(this, 'profileOpen')}/>
           </Grid>
 
