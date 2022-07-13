@@ -50,79 +50,10 @@ class App extends React.Component {
     };
   }
 
-  htpClickOpen = () => {
-    this.setState({htpOpen : true});
-  };
-
-  htpClose = (value) => {
-    this.setState({htpOpen : false});
-  };
-
-  leftrightClose = (value) => {
-    this.setState({leftright : true});
-  };
-
-  storeClickOpen = () => {
-    this.setState({storeOpen : true});
-  };
-
-  storeClose = (value) => {
-    this.setState({storeOpen : false});
-  };
-
-  voteClose = (value) => {
-    this.setState({voteOpen : this.state.leftright});
-  };
-
-  inventoryClickOpen = () => {
-    this.setState({inventoryOpen : true});
-  };
-
-  inventoryClose = (value) => {
-    this.setState({inventoryOpen : false});
-  };
-
-  dfClickOpen = () => {
-    this.setState({dfOpen : true});
-  };
-
-  dfClose = (value) => {
-    this.setState({dfOpen : false});
-  };
-
-  profileClickOpen = () => {
-    this.setState({profileOpen : true});
-  };
-
-  profileClose = (value) => {
-    this.setState({profileOpen : false});
-  };
-
-  calendarClickOpen = () => {
-    this.setState({calendarOpen : true});
-  };
-
-  calendarClose = (value) => {
-    this.setState({calendarOpen : false});
-  };
-
-  leadClickOpen = () => {
-    this.setState({leadMenu : true});
-  };
-
-  leadClose = (value) => {
-    this.setState({leadMenu : false});
-  };
-
-  handleClick(){
-    this.setState({showHowToPlay : !this.state.showHowToPlay});
-  }
-  handleLeaderboard(){
-    this.setState({dropdownLead : !this.state.dropdownLead});
-  }
-
-  handleLeads(){
-    this.setState({leads : !this.state.leads});
+  handleOpenClose(stateVar) {
+    var newState = {};
+    newState[stateVar] = !this.state[stateVar];
+    this.setState(newState);
   }
   
   render () {
@@ -132,26 +63,25 @@ class App extends React.Component {
         <Grid container spacing={2}>
             
           <Grid item xs={4}>
-            <Button variant = "outlined" onClick = {this.htpClickOpen.bind(this)}>
+            <Button variant = "outlined" onClick = {this.handleOpenClose.bind(this, 'htpOpen')}>
               How to Play
             </Button>
             <HTPDialog
               open={this.state.htpOpen}
-              onClose={this.htpClose.bind(this)}
+              onClose={this.handleOpenClose.bind(this, 'htpOpen')}
             />
-
           </Grid>
           <Grid item xs={4}>
-            <WhichLeaderboard open={this.state.dfOpen} onClick={this.handleLeads.bind(this)} leadClickOpen={this.leadClickOpen.bind(this)} />
+            <WhichLeaderboard open={this.state.dfOpen} onClick={this.handleOpenClose.bind(this, 'leads')} leadClickOpen={this.handleOpenClose.bind(this, 'leadMenu')} />
           </Grid>
 
           <Grid item xs={4}>
-            <Button variant = "outlined" onClick = {this.dfClickOpen.bind(this)}>
+            <Button variant = "outlined" onClick = {this.handleOpenClose.bind(this, 'dfOpen')}>
               Daily Fact 
             </Button>
             <DFDialog
               open={this.state.dfOpen}
-              onClose={this.dfClose.bind(this)}
+              onClose={this.handleOpenClose.bind(this, 'dfOpen')}
             />
           </Grid>
 
@@ -160,12 +90,12 @@ class App extends React.Component {
           </Grid>
 
           <Grid item xs={4}>
-            <IconButton aria-label="inventory" size = "large" onClick = {this.inventoryClickOpen.bind(this)}>
+            <IconButton aria-label="inventory" size = "large" onClick = {this.handleOpenClose.bind(this, 'inventoryOpen')}>
               <Inventory sx = {{ fontSize : 45, border: 2}}/>
             </IconButton>
             <InventoryCarousel
               open={this.state.inventoryOpen}
-              onClose={this.inventoryClose.bind(this)}
+              onClose={this.handleOpenClose.bind(this, 'inventoryOpen')}
             />
           </Grid>
 
@@ -173,10 +103,24 @@ class App extends React.Component {
             Best Streak: 
           </Grid>
 
-          <Grid item xs={3}>
-            <Button disabled = {this.state.leftright} onClick = {this.leftrightClose.bind(this)}>
-              Left
-            </Button>
+          <Grid item xs={12} sx={{
+            backgroundImage: "url('./default.jpg')"
+           }}>
+            <Grid container spacing={2}>
+              <Grid item xs={3}>
+                <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
+                  Left
+                </Button>
+              </Grid>
+
+              <Grid item xs={6}>
+              </Grid>
+
+              <Grid item xs={3}>
+                <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
+                  Right
+                </Button>
+              </Grid>
           </Grid>
 
           <Grid item xs={6}>
@@ -185,27 +129,23 @@ class App extends React.Component {
             </Paper>
           </Grid>
 
-          <Grid item xs={3}>
-            <Button disabled = {this.state.leftright} onClick = {this.leftrightClose.bind(this)}>
-              Right
-            </Button>
           </Grid>
 
           <Grid item xs={12}>
-            <Button variant="contained" disabled={this.state.voteOpen && this.state.leftright} onClick = {this.voteClose.bind(this)}>
+            <Button variant="contained" disabled={this.state.voteOpen && this.state.leftright} onClick = {this.handleOpenClose.bind(this, 'voteOpen')}>
               Vote
             </Button>
           </Grid>
 
           <Grid item xs={4}>
           
-            <IconButton aria-label="shopping-cart" size = "large" onClick = {this.storeClickOpen.bind(this)}>
+            <IconButton aria-label="shopping-cart" size = "large" onClick = {this.handleOpenClose.bind(this, 'storeOpen')}>
               <ShoppingCart sx = {{ fontSize : 60, border: 2}}/>
               
             </IconButton>
             <StoreCarousel
               open={this.state.storeOpen}
-              onClose={this.storeClose.bind(this)}
+              onClose={this.handleOpenClose.bind(this, 'storeOpen')}
             />
 
           </Grid>
@@ -219,13 +159,13 @@ class App extends React.Component {
 
           <Grid item xs={4}>
           
-            <IconButton aria-label="calendar-today" size = "large" onClick = {this.calendarClickOpen.bind(this)}>
+            <IconButton aria-label="calendar-today" size = "large" onClick = {this.handleOpenClose.bind(this, 'calendarOpen')}>
               <CalendarToday sx = {{ fontSize : 60, border: 2}}/>
             </IconButton>
 
             <CalendarDialog
               open={this.state.calendarOpen}
-              onClose={this.calendarClose.bind(this)}
+              onClose={this.handleOpenClose.bind(this, 'calendarOpen')}
             />
 
           </Grid>
@@ -237,8 +177,8 @@ class App extends React.Component {
           </Grid>
               
           <Grid item xs = {12}>
-            <ResponsiveAppBar profileOpen = {this.state.profileOpen} profileClose = {this.profileClose.bind(this)} profileClickOpen = {this.profileClickOpen.bind(this)}/>
-            <ProfileDialog open = {this.state.profileOpen} onClose = {this.profileClose.bind(this)}/>
+            <ResponsiveAppBar profileOpen = {this.state.profileOpen} profileClose = {this.handleOpenClose.bind(this, 'profileOpen')} profileClickOpen = {this.handleOpenClose.bind(this, 'profileOpen')}/>
+            <ProfileDialog open = {this.state.profileOpen} onClose = {this.handleOpenClose.bind(this, 'profileOpen')}/>
           </Grid>
 
 
