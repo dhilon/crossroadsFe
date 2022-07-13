@@ -4,13 +4,11 @@ import logo from './download.jpg'
 
 
 import WhichLeaderboard from './WhichLeaderboard.js'
-import InventoryDialog from './InventoryDialog.js'
 import ResponsiveAppBar from './AppBar.js';
 import ProfileDialog from './ProfileDialog.js';
 import HTPDialog from './HTPDialog.js';
 import DFDialog from './DFDialog.js';
 import CalendarDialog from './CalendarDialog.js';
-import StoreCard from './StoreDialog.js';
 import InventoryCarousel from './InventoryCarousel.js';
 import StoreCarousel from './StoreCarousel.js';
 import '@fontsource/roboto/300.css';
@@ -22,11 +20,13 @@ import Grid from '@mui/material/Grid';
 
 import * as React from "react";
 
-import PropTypes from 'prop-types';
-
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-import {CalendarToday, Inventory, CheckBox, CheckBoxOutlineBlank, ShoppingCart, CreditCard, DisabledByDefault} from '@mui/icons-material';
+import {
+  CalendarToday, 
+  Inventory, 
+  ShoppingCart, 
+  } from '@mui/icons-material';
 
 
 
