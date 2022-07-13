@@ -103,17 +103,15 @@ class App extends React.Component {
             Best Streak: 
           </Grid>
 
-          <Grid item xs={12} sx={{
-            backgroundImage: "url('./default.jpg')"
-           }}>
-            <Grid container spacing={2}>
+          
               <Grid item xs={3}>
                 <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
                   Left
                 </Button>
               </Grid>
 
-              <Grid item xs={6}>
+              <Grid item xs={6} sx = {{backgroundImage: {logo}}}>
+                
               </Grid>
 
               <Grid item xs={3}>
@@ -121,7 +119,6 @@ class App extends React.Component {
                   Right
                 </Button>
               </Grid>
-          </Grid>
 
           <Grid item xs={6}>
             <Paper elevation = {7}>
@@ -129,7 +126,6 @@ class App extends React.Component {
             </Paper>
           </Grid>
 
-          </Grid>
 
           <Grid item xs={12}>
             <Button variant="contained" disabled={this.state.voteOpen && this.state.leftright} onClick = {this.handleOpenClose.bind(this, 'voteOpen')}>

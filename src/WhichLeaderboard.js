@@ -64,18 +64,11 @@ function TopStreaksMenu(props) {
     <div>
       <Button variant="contained" size="normal" onClick={handleClick}>
         <Leaderboard fontSize="large" />
-        <Typography variant="h6" sx={{ padding: 1 }}>
+        <Typography variant="h5" sx={{ padding: 1 }}>
           <BatteryCharging90Outlined size="small" />
           Top Streaks
           <BatteryCharging90Outlined size="small" />
         </Typography>
-        <Leaderboard fontSize="large" />
-          <Typography variant = "h5" sx = {{padding: 1}}>
-            <CardMembershipOutlined size = "small"/>
-              Top Streaks
-            <CardMembershipOutlined size = "small"/>
-          </Typography>
-        <Leaderboard fontSize="large"/>
       </Button>
       <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Top Streaks Leaderboard</DialogTitle>
