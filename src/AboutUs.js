@@ -13,35 +13,32 @@ import {
 import PropTypes from 'prop-types';
 import { FixedSizeList } from 'react-window';
 
-function InventoryCard(props) {
+function AboutUsCard(props) {
   const { onClose } = props;
   return (
     <Card variant="outlined">
       <React.Fragment>
+        <CardActionArea>
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Item #?
+              Genius
             </Typography>
             <Typography variant="h5" component="div">
-              Random Item
+              Dhilon Prasad
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Strength: 
+              Age: 16
             </Typography>
             <Typography variant="body2">
-              A great ploy to ...
+              Hobbies: 
               <br />
               {'"..."'}
             </Typography>
           </CardContent>
-        <CardActions>
-          <Button size="small" onClick = {onClose}>
-            Use
-          </Button>
-        </CardActions>
+        </CardActionArea>
       </React.Fragment>
     </Card>
   );
 }
 
-export default InventoryCard;
+export default AboutUsCard;

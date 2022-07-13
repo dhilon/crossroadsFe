@@ -13,7 +13,6 @@ function StoreCard(props) {
     return (
       <Card variant="outlined">
         <React.Fragment>
-          <CardActionArea>
             <CardContent>
               <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                 Item #?
@@ -33,7 +32,6 @@ function StoreCard(props) {
                 <CardMembershipOutlined size = "small"/> 34
               </Typography>
             </CardContent>
-          </CardActionArea>
           <CardActions>
             <Button size="small" onClick = {onClose}>
               Buy

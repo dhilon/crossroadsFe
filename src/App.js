@@ -46,6 +46,7 @@ class App extends React.Component {
       storeOpen: false,
       leftright: false,
       feedbackOpen: false,
+      aboutUsOpen: false,
     };
   }
 
@@ -173,6 +174,9 @@ class App extends React.Component {
             feedbackOpen = {this.state.feedbackOpen}
             feedbackClose = {this.handleOpenClose.bind(this, 'feedbackOpen')}
             feedbackClickOpen = {this.handleOpenClose.bind(this, 'feedbackOpen')}
+            aboutUsOpen = {this.state.aboutUsOpen}
+            aboutUsClose = {this.handleOpenClose.bind(this, 'aboutUsOpen')}
+            aboutUsClickOpen = {this.handleOpenClose.bind(this, 'aboutUsOpen')}
             />
             <ProfileDialog open = {this.state.profileOpen} onClose = {this.handleOpenClose.bind(this, 'profileOpen')}/>
           </Grid>

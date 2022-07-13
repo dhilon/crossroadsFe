@@ -17,6 +17,7 @@ import ProfileDialog from "./ProfileDialog.js";
 import FeedbackDialog from './FeedbackDialog.js';
 import rct from './logo60.png'
 import { Feed } from "@mui/icons-material";
+import AboutUsCarousel from "./AboutUsCarousel.js";
 
 
 const pages = ['About Us', 'Feedback'];
@@ -26,6 +27,7 @@ function ResponsiveAppBar(props){
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { profileClose, profileOpen, profileClickOpen } = props;
   const { feedbackOpen, feedbackClose, feedbackClickOpen } = props;
+  const { aboutUsOpen, aboutUsClose, aboutUsClickOpen } = props;
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -93,10 +95,11 @@ function ResponsiveAppBar(props){
               <Button
                 key={"About Us"}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                
+                onClick = {aboutUsClickOpen}
               >
                 {"About Us"}
               </Button>
+              <AboutUsCarousel open = {aboutUsOpen} onClose = {aboutUsClose} />
               <Button
                 key={"Feedback"}
                 sx={{ my: 2, color: 'white', display: 'block' }}
