@@ -14,7 +14,6 @@ import PropTypes from 'prop-types';
 import { FixedSizeList } from 'react-window';
 
 function AboutUsCard(props) {
-  const { onClose } = props;
   return (
     <Card variant="outlined">
       <React.Fragment>

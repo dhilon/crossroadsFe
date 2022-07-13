@@ -91,20 +91,25 @@ function AboutUsCarousel(props) {
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
-
-            <Box
-                component="img"
-                sx={{
-                    height: 255,
-                    display: 'block',
-                    maxWidth: 400,
-                    overflow: 'hidden',
-                    width: '100%',
-                }}
-                src={cards[activeStep].imgPath}
-                alt={cards[activeStep].label}
-            />
-            {cards[activeStep].card}
+            {cards.map((step, index) => (
+              <div key={step.label}>
+                {Math.abs(activeStep - index) <= 2 ? (
+                  <Box
+                    component="img"
+                    sx={{
+                      height: 255,
+                      display: 'block',
+                      maxWidth: 400,
+                      overflow: 'hidden',
+                      width: '100%',
+                    }}
+                    src={step.imgPath}
+                    alt={step.label}
+                  />
+                ) : null}
+                {cards[activeStep].card}
+              </div>
+            ))}
 
           </AutoPlaySwipeableViews>
         </Box>
