@@ -1,8 +1,6 @@
 import './App.css';
 import logo from './download.jpg'
 
-
-
 import WhichLeaderboard from './WhichLeaderboard.js'
 import ResponsiveAppBar from './AppBar.js';
 import ProfileDialog from './ProfileDialog.js';
@@ -24,6 +22,7 @@ import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import {
   CalendarToday, 
+  Image, 
   Inventory, 
   ShoppingCart, 
   } from '@mui/icons-material';
@@ -104,26 +103,20 @@ class App extends React.Component {
           </Grid>
 
           
-              <Grid item xs={3}>
-                <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
-                  Left
-                </Button>
-              </Grid>
-
-              <Grid item xs={6} sx = {{backgroundImage: {logo}}}>
-                
-              </Grid>
-
-              <Grid item xs={3}>
-                <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
-                  Right
-                </Button>
-              </Grid>
+          <Grid item xs={3}>
+            <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
+              Left
+            </Button>
+          </Grid>
 
           <Grid item xs={6}>
-            <Paper elevation = {7}>
               <img src={logo} className="App-logo" alt="logo" sx = {{width: "100%", height: "100%"}}/>
-            </Paper>
+          </Grid>
+
+          <Grid item xs={3}>
+            <Button disabled={this.state.leftright} onClick={this.handleOpenClose.bind(this, 'leftright')}>
+              Right
+            </Button>
           </Grid>
 
 
