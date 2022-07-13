@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {Leaderboard, BatteryCharging90Outlined, CardMembershipOutlined} from "@mui/icons-material";
+import { Leaderboard, BatteryCharging90Outlined, CardMembershipOutlined } from "@mui/icons-material";
 import Divider from '@mui/material/Divider'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -25,12 +25,12 @@ function WhichLeaderboard(props) {
 
   return (
     <div>
-      <Button variant = "contained" size = "normal" onClick={handleClick}>
+      <Button variant="contained" size="normal" onClick={handleClick}>
         <Leaderboard fontSize="large" />
-          <Typography variant = "h5" sx = {{padding: 1}}>
-            Leaderboards
+        <Typography variant="h5" sx={{ padding: 1 }}>
+          Leaderboards
           </Typography>
-        <Leaderboard fontSize="large"/>
+        <Leaderboard fontSize="large" />
       </Button>
       <Menu
         id="which-menu"
@@ -39,22 +39,17 @@ function WhichLeaderboard(props) {
         onClose={handleClose}
       >
         <MenuItem onClick={leadClickOpen}>
-          <TopStreaksMenu>
-            
-          </TopStreaksMenu>
-          
+          <TopStreaksMenu /> 
         </MenuItem>
         <MenuItem onClick={leadClickOpen}>
-          <MostPointsMenu >
-          
-          </MostPointsMenu>
+          <MostPointsMenu />
         </MenuItem>
       </Menu>
     </div>
   );
 }
 
-function TopStreaksMenu(props){
+function TopStreaksMenu(props) {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -67,7 +62,13 @@ function TopStreaksMenu(props){
 
   return (
     <div>
-      <Button variant = "contained" size = "normal" onClick={handleClick}>
+      <Button variant="contained" size="normal" onClick={handleClick}>
+        <Leaderboard fontSize="large" />
+        <Typography variant="h6" sx={{ padding: 1 }}>
+          <BatteryCharging90Outlined size="small" />
+          Top Streaks
+          <BatteryCharging90Outlined size="small" />
+        </Typography>
         <Leaderboard fontSize="large" />
           <Typography variant = "h5" sx = {{padding: 1}}>
             <CardMembershipOutlined size = "small"/>
@@ -96,7 +97,7 @@ function TopStreaksMenu(props){
   )
 }
 
-function MostPointsMenu(props){
+function MostPointsMenu(props) {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -109,14 +110,14 @@ function MostPointsMenu(props){
 
   return (
     <div>
-      <Button variant = "contained" size = "normal" onClick={handleClick}>
+      <Button variant="contained" size="normal" onClick={handleClick}>
         <Leaderboard fontSize="large" />
-          <Typography variant = "h5" sx = {{padding: 1}}>
-            <CardMembershipOutlined size = "small"/>
-              Most Points
-            <CardMembershipOutlined size = "small"/>
-          </Typography>
-        <Leaderboard fontSize="large"/>
+        <Typography variant="h5" sx={{ padding: 1 }}>
+          <CardMembershipOutlined size="small" />
+          Most Points
+            <CardMembershipOutlined size="small" />
+        </Typography>
+        <Leaderboard fontSize="large" />
       </Button>
       <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Most Points Leaderboard</DialogTitle>
