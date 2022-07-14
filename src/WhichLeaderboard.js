@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Leaderboard, BatteryCharging90Outlined, CardMembershipOutlined } from "@mui/icons-material";
+import { Leaderboard, BatteryCharging90Outlined, CardMembershipOutlined, Filter1, Filter2, Filter3 } from "@mui/icons-material";
 import Divider from '@mui/material/Divider'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -80,9 +80,9 @@ function TopStreaksMenu(props) {
           open={open}
           onClose={handleClose}
         >
-          <ListItemButton>1st place: ...</ListItemButton>
-          <ListItemButton>2nd place: ...</ListItemButton>
-          <ListItemButton>3rd place: ...</ListItemButton>
+          <ListItemButton> <Filter1/> st place: ...</ListItemButton>
+          <ListItemButton> <Filter2/> nd place: ...</ListItemButton>
+          <ListItemButton> <Filter3/> rd place: ...</ListItemButton>
           <Divider sx={{ my: 0.5 }} />
           <ListItemButton>Your place: ...</ListItemButton>
         </List>
@@ -122,9 +122,9 @@ function MostPointsMenu(props) {
           open={open}
           onClose={handleClose}
         >
-          <ListItemButton>1st place: ...</ListItemButton>
-          <ListItemButton>2nd place: ...</ListItemButton>
-          <ListItemButton>3rd place: ...</ListItemButton>
+          <ListItemButton> <Filter1/> st place: ...</ListItemButton>
+          <ListItemButton> <Filter2/> nd place: ...</ListItemButton>
+          <ListItemButton> <Filter3/> rd place: ...</ListItemButton>
           <Divider sx={{ my: 0.5 }} />
           <ListItemButton>Your place: ...</ListItemButton>
         </List>
