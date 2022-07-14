@@ -8,6 +8,8 @@ import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
 
 
 
@@ -72,18 +74,18 @@ function TopStreaksMenu(props) {
       </Button>
       <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Top Streaks Leaderboard</DialogTitle>
-        <Menu
+        <List
           id="points-menu"
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
         >
-          <MenuItem>1st place: ...</MenuItem>
-          <MenuItem>2nd place: ...</MenuItem>
-          <MenuItem>3rd place: ...</MenuItem>
+          <ListItemButton>1st place: ...</ListItemButton>
+          <ListItemButton>2nd place: ...</ListItemButton>
+          <ListItemButton>3rd place: ...</ListItemButton>
           <Divider sx={{ my: 0.5 }} />
-          <MenuItem>Your place: ...</MenuItem>
-        </Menu>
+          <ListItemButton>Your place: ...</ListItemButton>
+        </List>
       </Dialog>
       
     </div>
@@ -114,18 +116,18 @@ function MostPointsMenu(props) {
       </Button>
       <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Most Points Leaderboard</DialogTitle>
-        <Menu
+        <List
           id="points-menu"
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
         >
-          <MenuItem>1st place: ...</MenuItem>
-          <MenuItem>2nd place: ...</MenuItem>
-          <MenuItem>3rd place: ...</MenuItem>
+          <ListItemButton>1st place: ...</ListItemButton>
+          <ListItemButton>2nd place: ...</ListItemButton>
+          <ListItemButton>3rd place: ...</ListItemButton>
           <Divider sx={{ my: 0.5 }} />
-          <MenuItem>Your place: ...</MenuItem>
-        </Menu>
+          <ListItemButton>Your place: ...</ListItemButton>
+        </List>
       </Dialog>
       
     </div>
